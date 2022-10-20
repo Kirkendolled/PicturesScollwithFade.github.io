@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow with a little crossfade</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div id="content">
+    <img src="Slides/image1.jpg" alt="slideshow image" id="myimage">
+</div>
+ <p id="links"><a href="#" id="previous">Previous</a><b> </b>
+<a href="#" id="next">Next</a></p>
+
+<script>
+var currentImage = 0;
+var myPhotos=['image1.jpg','image2.jpg','image3.jpg','image4.jpg','image5.jpg'];
+var container=document.getElementById('content');
+var nextBtn=document.getElementById('next');
+var prevBtn=document.getElementById('previous');
+
+nextBtn.addEventListener('click', function(event) {
+event.preventDefault();
+
+currentImage++;
+if (currentImage > myPhotos.length -1) {currentImage=0;}
+
+var newSlide = document.createElement('img');
+newSlide.src = `Slides/${myPhotos[currentImage]}`;
+newSlide.className = 'fadeinimg';
+container.appendChild(newSlide);
+});
+</script>
+
+</body>
+</html>
