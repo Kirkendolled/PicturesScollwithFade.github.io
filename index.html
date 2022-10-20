@@ -27,11 +27,29 @@ event.preventDefault();
 currentImage++;
 if (currentImage > myPhotos.length -1) {currentImage=0;}
 
-var newSlide = document.createElement('img');
+let newSlide = document.createElement('img');
 newSlide.src = `Slides/${myPhotos[currentImage]}`;
 newSlide.className = 'fadeinimg';
 container.appendChild(newSlide);
+if (container.children.length > 2) {
+    container.removeChild(container.children[0]);
+}
 });
+prevBtn.addEventListener('click', function(event){
+    event.preventDefault();
+    currentImage--;
+    if (currentImage > myPhotos.length -1) {currentImage=0;}
+
+let newSlides = document.createElement('img');
+newSlides.src = `Slides/${myPhotos[currentImage]}`;
+newSlides.className = 'fadeinimg';
+container.appendChild(newSlides);
+if (container.children.length > 2) {
+    container.removeChild(container.children[0]);
+}    
+});
+
+
 </script>
 
 </body>
